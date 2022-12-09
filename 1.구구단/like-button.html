@@ -10,21 +10,27 @@
 <!--<script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin></script>-->
 <!--<script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin></script>-->
 <script>
-    'use strict'
+    'use strict';
 
-    class LikeButton extends React.Component{
-        constructor(props) {
-            super(props);
-            this.state = {liked: false};
-        }
-        render() {
-            if(this.state.liked) {
-                return 'You liked this.';
-            }
+    const e = React.createElement;
 
-            return React.createElement('button', {onClick: () => this.setState({liked: true})}, 'like');
-        }
+    class LikeButton extends React.Component {
+    constructor(props) {
+      super(props);
+      this.state = {liked: false};
     }
+
+    render() {
+      if (this.state.liked) {
+        return 'You liked this.';
+      }
+
+      return e('button', {onClick: () => this.setState({liked: true})}, 'Like');
+    }
+    }
+</script>
+<script>
+    ReactDOM.render(e(LikeButton), document.querySelector('#root'));
 </script>
 </body>
 </html>
